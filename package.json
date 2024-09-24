@@ -1,0 +1,32 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "@vitejs/plugin-vue": "^5.1.4",
+        "axios": "^1.7.4",
+        "bootstrap": "^5.3.3",
+        "laravel-vite-plugin": "^1.0.5",
+        "sass": "^1.79.3",
+        "vite": "^5.4.7"
+    },
+    "name": "property-tax-system-laravel",
+    "version": "1.0.0",
+    "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>",
+    "main": "vite.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@docsearch/css": "^3.6.1",
+        "@popperjs/core": "^2.11.8",
+        "alpinejs": "^3.14.1"
+    }
+}
