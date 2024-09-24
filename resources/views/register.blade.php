@@ -93,9 +93,9 @@
                                             <select class="form-control" id="region_id" name="region_id" required
                                                 x-model="region" x-on:change="onRegionChange">
                                                 <option value="">Select Region</option>
-                                                @foreach ($regions as $region)
-                                                    <option :value="{{ $region->id }}">{{ $region->name }}</option>
-                                                @endforeach
+
+                                                <option :value="{{ $region->id }}">{{ $region->name }}</option>
+
                                             </select>
                                         </div>
                                         <br>
@@ -198,6 +198,8 @@
         </div>
     </div>
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    <script></script>
 
 </body>
 
