@@ -10,24 +10,23 @@ use App\Models\Province;
 use App\Models\Region;
 use Illuminate\Http\Request;
 
+use Illuminate\View\View ;
+
 class ApplicantController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $cities = City::orderBy('name', 'asc')->get();
-    //     $regions = Region::all();
-    //     $barangays = Barangay::all();
-    //     $provinces = Province::all();
-
-
-    //     return view('register', compact('cities', 'regions', 'barangays', 'provinces'));
-    // }
+    public function index():View
+    {
+        $regions = Region::all();
+     
+        return view('register', compact('regions'));
+    }
     public function create(ApplicantRegisterRequest $request)
     {
         $data = $request->validated();
+        
 
         // if($request['documents']-> && $request['valid_id'])
 

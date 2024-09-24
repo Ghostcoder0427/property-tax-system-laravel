@@ -14,11 +14,11 @@ class City extends Model
 
     public function barangays(): HasMany
     {
-        return $this->hasMany(Barangay::class);
+        return $this->hasMany(Barangay::class, 'city_municipality_code', 'city_minucipality_code');
     }
 
     public function provinces(): BelongsTo
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class, 'province_code', 'province_code');
     }
 }
