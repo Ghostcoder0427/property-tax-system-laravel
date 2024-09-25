@@ -36,20 +36,58 @@
                                     <h2>Registration Form</h2>
 
                                     <form action="{{ route('applicant.register') }}" method="POST"
-                                        enctype="multipart/form-data" id="registrationForm" x-data="{
+                                        id="registrationForm" x-data="{
                                             region: null,
                                             province: null,
+                                            city: null,
+                                            barangay: null,
                                             provinces: [],
-                                        
-                                            onRegionChange(event) {
-                                                axios.get(`/register/${event.target.value}`).then(res => {
-                                                    this.provinces = res.data;
-                                                    console.log('successful')
-                                                }).catch(error => {
-                                                    console.error('Error fetching provinces:', error);
-                                                });
-                                            }
-                                        }">
+                                            cities: [],
+                                            barangays: [],
+
+         
+             onRegionChange(event)  {
+             let regionId = event.target.value;
+             if(event.target.value < 10){
+                  regionId = String(event.target.value).padStart(2, '0');
+             }
+                 console.log(`Selected region: ${event.target.value}`);
+                 axios.get(`/regions/${regionId}`).then(res => {
+               
+                     this.provinces = res.data;
+                       console.log('fetched provinces', this.provinces)
+
+                 }).catch(error => {
+                     console.error('Error fetching provinces:', error);
+                 });
+             },
+
+                 onProvinceChange(event) {
+                     const provinceId = event.target.value;
+                    console.log(`Province Selected: ${provinceId}`)
+                    
+                     // Fetch cities based on the selected province CODE
+                     axios.get(`/provinces/${provinceId}`).then(res => {
+                         this.cities = res.data;
+                         console.log('fetched cities', this.cities);
+                     }).catch(error => {
+                         console.error('Error fetching cities:', error);
+                     });
+                 },
+
+                  onCityChange(event) {
+                     const cityId = event.target.value;
+                    console.log(`Province Selected: ${cityId}`)
+                     // Fetch barangays based on the selected city CODE
+                     axios.get(`/cities/${cityId}`).then(res => {
+                         this.barangays = res.data;
+                         console.log('fetched barangays', this.barangays);
+                     }).catch(error => {
+                         console.error('Error fetching barangays:', error);
+                     });
+                 }
+
+                                        }"  enctype="multipart/form-data">
                                         @csrf
                                         <br>
                                         <div class="form-group">
@@ -94,35 +132,42 @@
                                                 x-model="region" x-on:change="onRegionChange">
                                                 <option value="">Select Region</option>
 
-                                                <option :value="{{ $region->id }}">{{ $region->name }}</option>
+                                              @foreach ($regions as $region)
+                                              <option :value="{{ $region->region_code }}">{{ $region->region_description }}</option>
+
+                                              @endforeach
 
                                             </select>
                                         </div>
                                         <br>
-                                        <div class="form-group">
+                                        <div class="form-group" x-show="provinces.length > 0">
                                             <label for="province_id">Province</label>
-                                            <select class="form-control" id="province_id" name="province_id">
-
+                                            <select class="form-control" id="province_id" name="province_id" x-on:change="onProvinceChange">
                                                 <template x-for="province in provinces" :key="province.id">
-                                                    <option x-bind:value="province.id" x-text="province.name">
-                                                    </option>
+                                                    <option x-bind:value="province.province_code" x-text="province.province_description"></option>
+                                                </template>
+                                            </select>
+                                        </div>
+                                        
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="city_id">Municipality</label>
+                                            <select class="form-control" id="city_id" name="city_id" x-on:change="onCityChange" required>
+                                                <template x-for="city in cities" :key="city.id">
+                                                    <option x-bind:value="city.city_municipality_code" x-text="city.city_municipality_description"></option>
                                                 </template>
                                             </select>
                                         </div>
                                         <br>
-                                        <div class="form-group">
-                                            <label for="municipality">Municipality</label>
-                                            <select class="form-control" id="municipality" name="municipality" required>
-                                                <option>Select City/Municipality</option>
+                                        <div class="form-group" >
+                                            <label for="barangay_id">Barangay</label>
+                                            <select class="form-control" id="barangay_id" name="barangay_id" required>
+                                                <template x-for="barangay in barangays" :key="barangay.id">
+                                                    <option x-bind:value="barangay.barangay_code" x-text="barangay.barangay_description"></option>
+                                                </template>
                                             </select>
                                         </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <label for="barangay">Barangay</label>
-                                            <select class="form-control" id="barangay" name="barangay" required>
-                                                <option value="">Select Barangay</option>
-                                            </select>
-                                        </div>
+                                        
                                         <br>
                                         <div class="form-group">
                                             <label for="permanent_address">House No./ Street</label>
@@ -198,7 +243,7 @@
         </div>
     </div>
     <script src="//unpkg.com/alpinejs" defer></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script></script>
 
 </body>

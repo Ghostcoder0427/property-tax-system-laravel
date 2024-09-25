@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Region extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['region_description'];
     public function provinces(): HasMany
     {
-        return $this->hasMany(Province::class);
+        return $this->hasMany(Province::class, 'region_code', 'region_code');
     }
 }

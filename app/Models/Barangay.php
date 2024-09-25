@@ -15,6 +15,6 @@ class Barangay extends Model
 
     public function provinces(): BelongsTo
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class, 'city_municipality_code', 'city_municipality_code');
     }
 }

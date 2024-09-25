@@ -10,15 +10,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Province extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['province_description'];
 
     public function cities(): HasMany
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(City::class, 'province_code', 'province_code');
     }
 
     public function region(): BelongsTo
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Region::class, 'region_code', 'region_code');
     }
 }
