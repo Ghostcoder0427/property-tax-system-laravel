@@ -10,6 +10,11 @@ export default defineConfig({
                 "resources/css/app.css",
             ],
             refresh: true,
+            server: {
+                hmr: {
+                    overlay: false,
+                },
+            },
         }),
     ],
 });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Property Tax System - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -30,21 +30,11 @@
                         Register</a>
                 </nav>
             </div>
-            <!-- <div>
-        <h3 class="float-md-start mb-0"></h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="register.php"> Register</a>
-        </nav>
-      </div> -->
 
         </header>
-
         <main class="px-3">
             <h1 class="text-primary">Welcome User</h1>
             <p class="text-white">Login to your account.</p>
-            <!-- <span class="lead">
-        <a href="login.php" class="btn btn-lg fw-bold bg-primary text-white">Login</a>
-      </span> -->
         </main>
 
         <footer class="mt-auto text-white">

@@ -8,17 +8,19 @@ use App\Models\Province;
 use App\Models\Region;
 use Illuminate\Support\Facades\Route;
 
+// To Route Index (index.blade.php)
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/welcome', function () {
-    return view('welcome');
+// To Route Login (login.blade.php)
+Route::get('/login', function () {
+    return view('login');
 });
 
-
-
+//From index page to register page
 Route::get('/register', [ApplicantController::class, 'index'])->name('register');
+
 Route::get('/regions/{region_code}', function ($region_code) {
     $region = Region::where('region_code', $region_code)->first();
 
@@ -38,11 +40,20 @@ Route::get('/cities/{city_code}', function ($city_code) {
     return response()->json($barangays);
 });
 
-// Route::get('/regions/{region}',[AddressController::class, 'getProvinces']);
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
 
 Route::post('/register/applicant', [ApplicantController::class, 'create'])->name('applicant.register');
+
+Route::prefix('applicant')->middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('applicant.dashboard-applicant');
+    })->name('applicant.dashboard');
+});
+
+Route::post('/login/applicant', [ApplicantController::class, 'login'])
+    ->name('applicant.login');
+
+
+// To Route Header (header.blade.php)
+Route::get('/header', function () {
+    return view('header');
+});

@@ -21,12 +21,7 @@
                     <div class="col-md-8 col-lg-6 col-xxl-3">
                         <div class="card mb-0">
                             <div class="card-body">
-                                <?php
-                                if (isset($_SESSION['error'])) {
-                                    echo "<p style='color: red; align: center'>{$_SESSION['error']}</p>";
-                                    unset($_SESSION['error']);
-                                }
-                                ?>
+
                                 <a class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="assets/images/logos/favicon.png" width="130" alt="">
                                 </a>
@@ -36,8 +31,8 @@
                                 <h6 class="text-center">Naval, Biliran</h6>
 
                                 <!-- Form (Username, Password, Login) -->
-                                <form action="login.php" method="POST">
-
+                                <form action="{{ route('applicant.login') }}" method="POST">
+                                    @csrf
                                     <!-- Email -->
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
@@ -68,10 +63,10 @@
 
                                     <!-- Login -->
                                     <button type="submit"
-                                        class="btn btn-secondary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
+                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
                                 </form>
-                                <h6 class="text-center">Streamlining Real Property Management for Seamless Tax
-                                    Solutions.</h6>
+                                <h5 class="text-center">Streamlining Real Property Management for Seamless Tax
+                                    Solutions.</h5>
                             </div>
                         </div>
                     </div>

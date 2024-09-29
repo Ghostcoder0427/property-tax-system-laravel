@@ -27,6 +27,8 @@
     "dependencies": {
         "@docsearch/css": "^3.6.1",
         "@popperjs/core": "^2.11.8",
-        "alpinejs": "^3.14.1"
+        "alpinejs": "^3.14.1",
+        "jquery": "^3.7.1",
+        "popper.js": "^1.16.1"
     }
 }

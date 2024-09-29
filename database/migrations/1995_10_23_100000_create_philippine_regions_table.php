@@ -19,7 +19,7 @@ class CreatePhilippineRegionsTable extends Migration
             $table->string('psgc_code')->index();
             $table->string('region_description');
             $table->string('region_code')->index();
-             $table->timestamps();
+            $table->timestamps();
         });
     }
 
@@ -30,6 +30,6 @@ class CreatePhilippineRegionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('philippine_regions');
+        Schema::dropIfExists('regions');
     }
 }

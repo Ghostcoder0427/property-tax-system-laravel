@@ -18,10 +18,14 @@ return new class extends Migration
             $table->string('middle_name');
             $table->string('sex');
             $table->dateTime('dob');
-            $table->foreignId('region_id')->constrained();
-            $table->foreignId('province_id')->constrained();
-            $table->foreignId('city_id')->constrained();
-            $table->foreignId('barangay_id')->constrained();
+            $table->string('region_code');
+            $table->string(column: 'province_code');
+            $table->string('city_municipality_code');
+            $table->string('barangay_code');
+            // $table->foreign('region_code')->references('region_code')->on('regions');
+            // $table->foreign('province_code')->references('province_code')->on('provinces');
+            // $table->foreign('city_municipality_code')->references('city_municipality_code')->on('cities');
+            // $table->foreign('barangay_code')->references('barangay_code')->on('barangays');
             $table->string(column: 'house_number');
             $table->string('phone_number')->unique();
             $table->string('email')->unique();

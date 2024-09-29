@@ -21,7 +21,7 @@ class CreatePhilippineBarangaysTable extends Migration
             $table->string('region_code')->index();
             $table->string('province_code')->index();
             $table->string('city_municipality_code')->index();
-             $table->timestamps();
+            $table->timestamps();
         });
     }
 
@@ -32,6 +32,6 @@ class CreatePhilippineBarangaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('philippine_barangays');
+        Schema::dropIfExists('barangays');
     }
 }

@@ -32,6 +32,6 @@ class CreatePhilippineCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('philippine_cities');
+        Schema::dropIfExists('cities');
     }
 }
