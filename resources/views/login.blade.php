@@ -1,3 +1,5 @@
+@include('includes.header')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +43,7 @@
                                     </div>
 
                                     <!-- Password -->
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password" name="password"
                                             required>
@@ -61,12 +63,19 @@
                                         <a class="text-primary fw-bold" href="reset-password.php">Forgot Password ?</a>
                                     </div>
 
-                                    <!-- Login -->
-                                    <button type="submit"
-                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
+                                    <div class="d-flex justify-content-between mt-4 gap-2">
+                                        <!-- Back Button -->
+                                        <button type="button" onclick="history.back()"
+                                            class="btn btn-primary w-50 rounded-2">Back</button>
+
+                                        <!-- Login Button -->
+                                        <button type="submit" class="btn btn-primary w-50 rounded-2">Login</button>
+                                    </div>
+
                                 </form>
-                                <h5 class="text-center">Streamlining Real Property Management for Seamless Tax
-                                    Solutions.</h5>
+                                <br>
+                                <p class="text-center">Streamlining Real Property Management for Seamless Tax
+                                    Solutions.</p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +83,7 @@
             </div>
         </div>
     </div>
-
+    @include('includes.footer')
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

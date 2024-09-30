@@ -8,15 +8,30 @@ use App\Models\Province;
 use App\Models\Region;
 use Illuminate\Support\Facades\Route;
 
-// To Route Index (index.blade.php)
+// To go to index (index.blade.php)
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-// To Route Login (login.blade.php)
+// From index page to login (login.blade.php)
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
+
+//  to header (header.blade.php)
+Route::get('/header', function () {
+    return view('header');
+})->name('header');
+
+//  to footer (footer.blade.php)
+Route::get('/footer', function () {
+    return view('footer');
+})->name('footer');
+
+//  to home (home.blade.php)
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 //From index page to register page
 Route::get('/register', [ApplicantController::class, 'index'])->name('register');

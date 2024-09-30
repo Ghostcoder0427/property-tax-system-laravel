@@ -386,18 +386,19 @@
 
                                                 </div>
 
-                                                <!-- Submit Button -->
-                                                <div class="text-center mt-4">
+                                                <div class="d-flex justify-content-between mt-4 gap-2">
+                                                    <!-- Back Button -->
+                                                    <button type="button" onclick="history.back()"
+                                                        class="btn btn-primary w-50 rounded-2">Back</button>
+
+                                                    <!-- Submit Button -->
                                                     <button type="submit"
-                                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Submit</button>
+                                                        class="btn btn-primary w-50 rounded-2">Submit</button>
                                                 </div>
                                             </div>
                                         </div>
                                 </div>
                                 </form>
-
-
-
 
 
                                 <script src="//unpkg.com/alpinejs" defer></script>
@@ -410,6 +411,8 @@
         </div>
     </div>
     </div>
+    <br>
+    @include('includes.footer')
 </body>
 
 </html>
